@@ -10,3 +10,7 @@
   --color-brand-tint: #eaf2ff;
   --color-sun-tint: #fff7df;
 }
+
+html {
+  font-size: clamp(16px, 1.1111vw, 24px);
+}

@@ -2,8 +2,8 @@ const links = ['Home', 'About', 'Overview', 'Contact']
 
 function Navbar() {
   return (
-    <header className="bg-white">
-      <nav className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 lg:px-24">
+    <header className="border-b border-line bg-white">
+      <nav className="mx-auto flex max-w-[90rem] items-center justify-between px-6 py-5 lg:px-24">
         <img
           src="/gdgoc-logo.svg"
           alt="Google Developer Groups on Campus, Universitas Gadjah Mada"
