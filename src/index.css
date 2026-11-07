@@ -9,6 +9,12 @@
   --color-brand: #1967d2;
   --color-brand-tint: #eaf2ff;
   --color-sun-tint: #fff7df;
+  --color-surface: #f1f3f4;
+  --color-accent: #4285f4;
+  --color-accent: #4284f4;
+  --color-google-red: #ea4335;
+  --color-google-yellow: #f9ab00;
+  --color-google-green: #34a853;
 }
 
 html {
