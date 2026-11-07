@@ -1,20 +1,10 @@
 import { Link, NavLink } from 'react-router-dom'
 import Container from './Container'
-import { useFetch } from '../hooks/useFetch'
-
-const API_URL = 'https://gdgoc-ugm-api.vercel.app/api/navigation'
-
-const fallbackLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Overview', href: '/overview' },
-  { label: 'Contact', href: '/contact' },
-]
+import { useNavigation } from '../hooks/useNavigation'
 
 function Navbar() {
-  const { data } = useFetch(API_URL)
-  const links = data?.data?.length > 0 ? data.data : fallbackLinks
-
+  const links = useNavigation()
+  
   return (
     <header className="border-b border-line bg-white">
       <Container>

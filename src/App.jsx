@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import AboutPage from './pages/AboutPage'
 import ComingSoonPage from './pages/ComingSoonPage'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/contact" element={<ComingSoonPage name="Contact" />} />
         <Route path="*" element={<ComingSoonPage name="Page not found" />} />
       </Routes>
+      <Footer />
     </>
   )
 }
