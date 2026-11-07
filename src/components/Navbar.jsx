@@ -49,7 +49,7 @@ function Navbar() {
 
           <Link
             to="/overview"
-            className="rounded-lg bg-brand px-5 py-3 font-medium text-white hover:opacity-90"
+            className="rounded-lg bg-accent px-5 py-3 font-medium text-white hover:opacity-90"
           >
             Find your track →
           </Link>
