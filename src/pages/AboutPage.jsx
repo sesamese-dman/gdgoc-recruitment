@@ -1,6 +1,7 @@
 import AboutHero from '../components/AboutHero'
 import PurposeSection from '../components/PurposeSection'
 import ValuesSection from '../components/ValuesSection'
+import WaysToBelongSection from '../components/WaysToBelongSextion'
 
 function AboutPage() {
   return (
@@ -8,6 +9,7 @@ function AboutPage() {
       <AboutHero />
       <PurposeSection />
       <ValuesSection />
+      <WaysToBelongSection />
     </main>
   )
 }
