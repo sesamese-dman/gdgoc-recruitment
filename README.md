@@ -3,6 +3,7 @@
 A responsive recreation of the **About** and **Contact** pages from the GDGoC UGM Figma design, built with React and Tailwind CSS and powered by the provided API.
 
 **Live site:** https://gdgoc-recruitment-lake.vercel.app
+
 **Video presentation:** https://drive.google.com/file/d/1Fwd0RwteacM7bmWKI_RaO-SfybxSlLTW/view?usp=sharing
 
 ## Features
