@@ -4,10 +4,12 @@ import AboutPage from './pages/AboutPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 import Footer from './components/Footer'
 import ContactPage from './pages/ContactPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/about" replace />} />
