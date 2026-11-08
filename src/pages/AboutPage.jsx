@@ -1,7 +1,7 @@
 import AboutHero from '../components/AboutHero'
 import PurposeSection from '../components/PurposeSection'
 import ValuesSection from '../components/ValuesSection'
-import WaysToBelongSection from '../components/WaysToBelongSextion'
+import WaysToBelongSection from '../components/WaysToBelongSection'
 import CommitmentBanner from '../components/CommitmentBanner'
 import InvitationSection from '../components/InvitationSection'
 
