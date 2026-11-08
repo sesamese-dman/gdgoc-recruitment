@@ -3,6 +3,7 @@ import CategoryPicker from './CategoryPicker'
 import CommunityUpdatesCard from './CommunityUpdatesCard'
 import Container from './Container'
 import { useFetch } from '../hooks/useFetch'
+import ContactForm from './ContactForm'
 
 const API_URL = 'https://gdgoc-ugm-api.vercel.app/api/inquiry-categories'
 
@@ -27,9 +28,12 @@ function ContactWorkspace() {
           <CommunityUpdatesCard />
         </div>
 
-        <div className="rounded-[1.25rem] bg-surface p-8">
-          <p className="text-muted">The message form goes here. We’ll build it next.</p>
-        </div>
+        <ContactForm
+            categories={categories}
+            loading={loading}
+            selectedId={selectedId}
+            onSelect={setChosenId}
+        />
       </Container>
     </section>
   )
