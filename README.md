@@ -81,5 +81,4 @@ Deployed on Vercel. `vercel.json` rewrites all paths to `index.html` so direct v
 
 ## Known Limitations
 
-- The mobile navigation menu is not built yet; navigation links are hidden on small screens.
 - The Overview page is a placeholder, since the assignment only asked for two pages.
