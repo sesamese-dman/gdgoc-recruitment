@@ -14,6 +14,9 @@ A responsive recreation of the **About** and **Contact** pages from the GDGoC UG
 - Topic cards and the form's category dropdown share one state
 - Accessible markup: labelled form fields, `aria-invalid`/`aria-describedby` errors, keyboard-friendly radio cards
 - Client-side routing with a SPA rewrite for deployment
+- Mobile navigation menu (hamburger) for small screens
+- Error boundary around the routes, so a  rendering crash shows a friendly fallback
+- State persistence: the contact form draft and selected topic are saved in `localStorage`and cleared when the form is sent
 
 ## Tech Stack
 
@@ -51,6 +54,7 @@ src/
 
 - **Page sections as components.** Each page is a thin composition of focused section components, so each file does one job.
 - **`useFetch` hook.** One custom hook handles fetching, loading and error state, and cancels in-flight requests with `AbortController`. Every API section reuses it.
+- **`useLocalStorage` hook.** Same shape as `useState` (`[value, setValue]`), but it reads the saved value on first render and writes it back on every change. It's wrapped in `try/catch`, so the app still works if storage is blocked.
 - **State management.** Local React state only (`useState`). The selected inquiry category is lifted into `ContactWorkspace` so the topic cards and the form dropdown stay in sync. No extra library was needed for this scope.
 - **Design tokens.** Colors come from the Figma variables and live in the Tailwind `@theme` block, so components use names like `text-brand` and `bg-surface` instead of raw hex values.
 - **Runtime colors.** Colors that come from the API (value accent bars) use inline styles, because Tailwind only generates classes it can see at build time.
@@ -79,6 +83,13 @@ npm run lint     # run ESLint
 
 Deployed on Vercel. `vercel.json` rewrites all paths to `index.html` so direct visits and refreshes on routes like `/contact` work with client-side routing.
 
+## Additional Challenges
+
+- **State persistence:** implemented with a custom `useLocalStorage` hook (contact form draft and selected topic).
+- **Linting:** ESLint is configured and `npm run lint` passes with no errors.
+- Not implemented: TypeScript, and client-side filtering, sorting or pagination. 
+
 ## Known Limitations
 
 - The Overview page is a placeholder, since the assignment only asked for two pages.
+- The Linkedin and Instagram links in the footer are built from the handle the API returns, so they point to the right accounts only if that handle matches the real profile

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const emptyValues = {
   firstName: '',
@@ -43,7 +44,8 @@ function Field({ id, label, error, children }) {
 }
 
 function ContactForm({ categories, loading, selectedId, onSelect }) {
-  const [values, setValues] = useState(emptyValues)
+  const [values, setValues] = useLocalStorage('gdgoc-contact-draft', emptyValues)
+  const [sentName, setSentName] = useState('')
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -56,16 +58,18 @@ function ContactForm({ categories, loading, selectedId, onSelect }) {
     event.preventDefault()
     const found = validate(values, selectedId)
     setErrors(found)
-    if (Object.keys(found).length === 0) setSubmitted(true)
+    if (Object.keys(found).length === 0) {
+      setSentName(values.firstName)
+      setValues(emptyValues)
+      setSubmitted(true)
+    }
   }
 
   function reset() {
-    setValues(emptyValues)
     setErrors({})
     setSubmitted(false)
   }
 
-  // props shared by every input: border colour and accessibility hooks depend on the error
   const fieldProps = (name) => ({
     id: name,
     name,
@@ -79,7 +83,7 @@ function ContactForm({ categories, loading, selectedId, onSelect }) {
   if (submitted) {
     return (
       <div className="rounded-[1.25rem] bg-surface p-8" role="status">
-        <h2 className="text-[1.75rem] font-medium text-ink">Thank you, {values.firstName}!</h2>
+        <h2 className="text-[1.75rem] font-medium text-ink">Thank you, {sentName}!</h2>
         <p className="mt-3 text-muted">
           Your message is ready. This demo has no server, so nothing was actually sent.
         </p>

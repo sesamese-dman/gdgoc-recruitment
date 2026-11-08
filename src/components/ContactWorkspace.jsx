@@ -4,6 +4,7 @@ import CommunityUpdatesCard from './CommunityUpdatesCard'
 import Container from './Container'
 import { useFetch } from '../hooks/useFetch'
 import ContactForm from './ContactForm'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const API_URL = 'https://gdgoc-ugm-api.vercel.app/api/inquiry-categories'
 
@@ -11,8 +12,10 @@ function ContactWorkspace() {
   const { data, loading, error } = useFetch(API_URL)
   const categories = data?.data ?? []
 
-  const [chosenId, setChosenId] = useState(null)
-  const selectedId = chosenId ?? categories[0]?.id ?? null
+  const [chosenId, setChosenId] = useLocalStorage('gdgoc-contact-category', null)
+
+  const chosenExists = categories.some((category) => category.id === chosenId)
+  const selectedId = chosenExists ? chosenId : categories[0]?.id ?? null
 
   return (
     <section className="bg-white">
